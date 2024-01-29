@@ -7,6 +7,11 @@ sources:
     tables:
       - name: customer
       - name: orders
+        columns:        # test snowflake raw source data
+          - name: orderid
+            tests:
+              - unique
+              - not_null    
       - name: product
         #columns:  -- no actual column 'loadedat' so comment out the code
           #loaded_at_field: loadedat

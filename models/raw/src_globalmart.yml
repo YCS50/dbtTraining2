@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: globalmart
+    description: a clone of the snowflake database
+    database: raw
+    schema: globalmart
+    tables:
+      - name: customer
+      - name: orders
+        description: raw orders table
+        columns:        # test snowflake raw source data
+          - name: orderid
+            description: primary key for orders
+            tests:
+              - unique
+              - not_null    
+      - name: product
+        #columns:  -- no actual column 'loadedat' so comment out the code
+          #loaded_at_field: loadedat
+          #freshness:
+            #warn_after:
+              #count: 12
+              #period: hour
+            #error_after:
+              #count: 12
+              #period: hour
+          
